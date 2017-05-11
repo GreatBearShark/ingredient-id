@@ -1,3 +1,9 @@
-.ingredients {
-  min-height: 400px;
+.chip.danger {
+  color: white;
+  background-color: #BF360C;
+}
+
+#submit {
+  display: flex;
+  justify-content: center;
 }
