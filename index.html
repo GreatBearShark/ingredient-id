@@ -33,7 +33,6 @@
     </div>
   </div>
 
-
   <div class="container">
     <div class="section">
       <div class="row">
@@ -59,7 +58,7 @@
           <ul class="collapsible popout" data-collapsible="accordion">
             <li>
               <div class="collapsible-header"><i class="material-icons">view_list</i>My Ingredients <span style="float: right;">&#x25BC;</span></div>
-              <div class="collapsible-body"><span><div class="chips"></div></span></div>
+              <div class="collapsible-body"><span><div class="chips-placeholder"></div></span></div>
             </li>
           </ul>
         </div>
@@ -135,7 +134,10 @@
   <script src="js/init.js"></script>
   <script src="js/app.js"></script>
   <script>
-  $('.chips').material_chip();</script>
+  $('.chips-placeholder').material_chip({
+  placeholder: 'Add An Ingredient',
+  secondaryPlaceholder: 'Add An Ingredient',
+  });</script>
 
   </body>
 </html>
