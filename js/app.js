@@ -34,8 +34,6 @@ submit.onclick = function (e) {
   // Make Ajax Request from API
   fetchJSONFile('https://api.nutritionix.com/v1_1/search/' + foodInput + '?fields=item_name%2Cnf_ingredient_statement&appId=581271e2&appKey=ac38680b7c64e2959b2bb43d0fa5ca1c', function(data){
 
-
-
       function buildCard() {
         foodList.innerHTML += foodCard
       }
@@ -83,8 +81,10 @@ submit.onclick = function (e) {
 
         foodCard.innerHTML = "";
       }
-
-
-
   });
 }
+
+fetchJSONFile('https://api.nal.usda.gov/ndb/search/?format=json&q=pizza&sort=n&max=5&offset=0&api_key=nemN15kGCvu4lj5yrtHlb8AQlbD6Cu1YfCJjvTqZ', function(data) {
+  foodNumber = data.list.item[0].ndbno;
+  console.log(foodNumber);
+})
