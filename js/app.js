@@ -38,25 +38,29 @@ submit.onclick = function (e) {
       for (i = 0; i < 10; i++ ) {
         var foodName = data.hits[i].fields.item_name;
 
-
-        // var ingredients = data.hits[i].fields.nf_ingredient_statement;
-
-        var ingredients = "Cheese, Sauce, Bread"
+        var ingredients = data.hits[i].fields.nf_ingredient_statement;
 
         function buildIngredients() {
-
           if (ingredients != null) {
             ingredients = ingredients.split(', ');
             console.log(ingredients);
 
-            // for (i = 0; i < 3; i++) {
-            //   console.log(ingredients);
-            //   return `<div class="chip">${ingredients[i]}</div>`
-            // }
+            var ingredientHTML;
+
+            ingredientHTML = "";
+
+            for (i = 0; i < ingredients.length; i++) {
+              ingredientHTML += `<div class="chip">${ingredients[i]}</div>`;
+            }
+            return ingredientHTML;
+          } else {
+            return `<div class="chip danger">Ingredients Unavailable</div>`
           }
         }
 
         var ingredientList = buildIngredients();
+
+        console.log(ingredientList);
 
         var foodCard = `
         <div class="col s12 m3">
@@ -70,8 +74,6 @@ submit.onclick = function (e) {
         </div>`
 
         buildCard();
-
-        buildIngredients();
 
         foodCard.innerHTML = "";
       }
