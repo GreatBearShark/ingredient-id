@@ -17,6 +17,11 @@ function fetchJSONFile(path, callback) {
 var foodList = document.getElementById('food-list');
 var submit = document.getElementById('submit');
 
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 submit.onclick = function (e) {
   e.preventDefault();
 
@@ -50,7 +55,8 @@ submit.onclick = function (e) {
             ingredientHTML = "";
 
             for (i = 0; i < ingredients.length; i++) {
-              ingredientHTML += `<div class="chip">${ingredients[i]}</div>`;
+              ingredientItem = toTitleCase(ingredients[i]);
+              ingredientHTML += `<div class="chip">${ingredientItem}</div>`;
             }
             return ingredientHTML;
           } else {
